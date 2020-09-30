@@ -1,0 +1,8 @@
+[Unit]
+Description=Random WireGuard VPN Connection
+
+[Service]
+ExecStart=/usr/local/bin/wireguard-random
+
+[Install]
+WantedBy=multi-user.target

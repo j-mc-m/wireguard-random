@@ -1,0 +1,9 @@
+#!/bin/bash
+rand=$(sudo ls /etc/wireguard | shuf -n 1 | sed 's|\.conf||')
+
+# Stop any existing wg-quick.
+cur=$(sudo systemctl list-units  | grep wg-quick | awk '{print $1}')
+sudo systemctl stop $cur
+
+# Start the random wg-quick.
+sudo systemctl start wg-quick@$rand
